@@ -1,0 +1,2 @@
+<h3>Halo, {{ $user->name }} </h3>
+<h5>Silahkan klik link berikut ini untuk melakukan <a href="{{url('auth/resetpassword')}}/{{$user->token_for_reset_password}}">reset kata sandi</a>, jika anda tidak melakukan proses ini, mohon abaikan email ini</h5> 

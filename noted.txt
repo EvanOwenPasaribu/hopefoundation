@@ -1,0 +1,26 @@
+<router-link :to="{ name: 'detailfundraising', params: { id_fundraising: fundraisingproduct.id_fundraisingproduct }}">
+        <div class="col-md-2 col-sm-3 col-4">
+             <div class="card product">
+                <a>
+                    <div class="card-header p-0 product-header">
+                        <img class="img-fluid img-product" :src="fundraisingproduct.fundraisingproductimages[0].fundraising_product_images_thumb">
+                    </div>
+                    <div class="card-body product-body">
+                        <p>{{fundraisingproduct.product_name}}</p>
+                        <p>Rp 50.000</p>
+                    </div>
+
+
+<router-link :to="{ name: 'detailfundraising', params: { id_fundraising: fundraisingproduct.id_fundraisingproduct }}">
+        <div class="card p-5">
+            <img :src="fundraisingproduct.fundraisingproductimages[0].fundraising_product_images_thumb" class="card-img-top img-fluid">
+            <div class="card-body">
+                
+
+                <h5 class="card-title"><b>{{fundraisingproduct.product_name}}</b></h5>
+                <h6 class="visibletext text-black-100" v-if="fundraisingproduct.fundraisingproductattributes[0].disc_percentage != 0"><del>Rp. {{ formatPrice(fundraisingproduct.fundraisingproductattributes[0].product_price_gross) }}</del></h6>
+                <h6 class="invisibletext text-black-100" v-else><del>Rp. {{ formatPrice(fundraisingproduct.fundraisingproductattributes[0].product_price_gross) }}</del></h6>
+                <h6 class="text-red"><b>Rp. {{ formatPrice(fundraisingproduct.fundraisingproductattributes[0].product_price_netto) }}</b></h6>
+            </div>
+        </div>
+    </router-link>
