@@ -20,6 +20,19 @@ class FundraisingProductController extends Controller
         ], 200);
     }
 
+    public function getDetailProduct($id)
+    {
+        $data = FundraisingProduct::with(['fundraisingproductattributes','fundraisingproductimages'])->where('id_fundraisingproduct', $id)->get();
+        return response()->json([
+            'code' => 200,
+            'message' => '',
+            'status' => 0,
+            'data' => $data
+        ], 200);
+    }
+
+
+
     public function addProduct(Request $request) {
         $this->user = JWTAuth::parseToken()->authenticate();
         $produk = new FundraisingProduct();
@@ -59,18 +72,29 @@ class FundraisingProductController extends Controller
         $tujuan_upload = 'images/fundraisingproduct/';
         $tujuan_upload2 = 'images/fundraisingproduct/thumbs/';
 
-        $namafile = $idFundraisingProduct . date('Ymdhis') . '.jpg';
-        //$request->file('image')->move($tujuan_upload2,$namafile);
-        $request->file('image')->move($tujuan_upload,$namafile);
-        copy($tujuan_upload.$namafile, $tujuan_upload2.$namafile);
+        $namafile1 = $idFundraisingProduct. "1" . date('Ymdhis') . '.jpg';
+        $namafile2 = $idFundraisingProduct. "2" . date('Ymdhis') . '.jpg';
+        $request->file('image1')->move($tujuan_upload,$namafile1);
+        $request->file('image2')->move($tujuan_upload,$namafile2);
+        copy($tujuan_upload.$namafile1, $tujuan_upload2.$namafile1);
+        copy($tujuan_upload.$namafile2, $tujuan_upload2.$namafile2);
 
         $fundraisingImage = new FundraisingProductImages();
         $fundraisingImage->id_fundraisingproduct = $idFundraisingProduct;
-        $fundraisingImage->fundraising_product_images = "/".$tujuan_upload . $namafile;
-        $fundraisingImage->fundraising_product_images_thumb = "/".$tujuan_upload2 . $namafile;
+        $fundraisingImage->fundraising_product_images = "/".$tujuan_upload . $namafile1;
+        $fundraisingImage->fundraising_product_images_thumb = "/".$tujuan_upload2 . $namafile1;
         $fundraisingImage->is_default = "Y";
         $fundraisingImage->fundraising_product_images_is_deleted = "N";
         $fundraisingImage->save();
+
+        $fundraisingImage = new FundraisingProductImages();
+        $fundraisingImage->id_fundraisingproduct = $idFundraisingProduct;
+        $fundraisingImage->fundraising_product_images = "/".$tujuan_upload . $namafile2;
+        $fundraisingImage->fundraising_product_images_thumb = "/".$tujuan_upload2 . $namafile2;
+        $fundraisingImage->is_default = "Y";
+        $fundraisingImage->fundraising_product_images_is_deleted = "N";
+        $fundraisingImage->save();
+
         return response()->json([
             'code' => 200,
             'message' => '',

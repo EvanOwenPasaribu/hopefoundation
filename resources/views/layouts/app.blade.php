@@ -31,6 +31,11 @@
         <link rel="stylesheet" href="{{ asset('css/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
 
+        {{--  Style Detail Product  --}}
+        <link rel="stylesheet" href="{{asset('css/fundraising_detail/tooplate-main.css')}}">
+        <link rel="stylesheet" href="{{asset('css/fundraising_detail/owl.css')}}">
+        <link rel="stylesheet" href="{{asset('css/fundraising_detail/flex-slider.css')}}">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -54,7 +59,13 @@
         <script src="{{ asset('js/slider.js') }}"></script>
         <script src="{{ asset('js/bootstrap-clockpicker.min.js') }}"></script> 
         <script src="{{ asset('js/main.js') }}"></script>
-        
+
+        {{--  Script Detail Product  --}}
+        <script src="{{asset('js/fundraising_detail/custom_detail_product.js')}}"></script>
+        <script src="{{asset('js/fundraising_detail/owl.js')}}"></script>
+        <script src="{{asset('js/fundraising_detail/isotope.js')}}"></script>
+        <script src="{{asset('js/fundraising_detail/flex-slider.js')}}"></script>
+
     </body>
     
 </html>

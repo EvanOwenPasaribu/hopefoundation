@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'detailfundraising', params: { id_fundraising: fundraisingproduct.id_fundraisingproduct }}">
+    <router-link :to="{ name: 'detailfundraising', params: { id_fundraisingproduct: fundraisingproduct.id_fundraisingproduct }}">
         <div>
             <div class="card product">
                 <a>

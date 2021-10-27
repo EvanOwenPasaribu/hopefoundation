@@ -1,4 +1,4 @@
-b<template>
+<template>
     <div class="wrapper-nav-side">
         <h3><b>Add Fundraising Product</b></h3>
         <div class="add-product">
@@ -98,15 +98,34 @@ b<template>
             <div class="upload-image">
                 <h5>Gambar Produk</h5>
                 <div class="box-upload-container">
-                    <span v-for="(item,i) in selectedImg">
-                    {{item}}
-                    <div  class="box-image" v-bind:style="{'background-image':'url(' + item + ')'}">
-                        <i v-if="!selectedImg[i]" data-v-6236d21b="" class="hope-icon-upload">
+                    <div  class="box-image" v-bind:style="{'background-image':'url(' + selectedImg1 + ')'}">
+                        <i v-if="!selectedImg1" data-v-6236d21b="" class="hope-icon-upload">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"></path></svg>
                         </i>
-                        <input type="file" @change="uploadImage($event)" name="file" accept="image/*" multiple="multiple" aspect="1" class="input_file">
+                        <input type="file" @change="uploadImage1($event)" name="file" accept="image/*" multiple="multiple" aspect="1" class="input_file">
                     </div>
-                    </span>
+
+                    <div  class="box-image" v-bind:style="{'background-image':'url(' + selectedImg2 + ')'}">
+                        <i v-if="!selectedImg2" data-v-6236d21b="" class="hope-icon-upload">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"></path></svg>
+                        </i>
+                        <input type="file" @change="uploadImage2($event)" name="file" accept="image/*" multiple="multiple" aspect="1" class="input_file">
+                    </div>
+
+                    <div  class="box-image" v-bind:style="{'background-image':'url(' + selectedImg3 + ')'}">
+                        <i v-if="!selectedImg3" data-v-6236d21b="" class="hope-icon-upload">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"></path></svg>
+                        </i>
+                        <input type="file" @change="uploadImage3($event)" name="file" accept="image/*" multiple="multiple" aspect="1" class="input_file">
+                    </div>
+
+                    <div  class="box-image" v-bind:style="{'background-image':'url(' + selectedImg4 + ')'}">
+                        <i v-if="!selectedImg4" data-v-6236d21b="" class="hope-icon-upload">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"></path></svg>
+                        </i>
+                        <input type="file" @change="uploadImage4($event)" name="file" accept="image/*" multiple="multiple" aspect="1" class="input_file">
+                    </div>
+
                 </div>
             </div>
 
@@ -130,7 +149,14 @@ export default {
             fundraisingproducts: [],
             fundraisingattributecolour: [],
             fundraisingattributesize: [],
-            selectedImg : [null,null,null,null]
+            image1 : null,
+            selectedImg1 : null,
+            image2 : null,
+            selectedImg2 : null,
+            image3 : null,
+            selectedImg3 : null,
+            image4 : null,
+            selectedImg4 : null
         }
     },
     components:{
@@ -176,20 +202,27 @@ export default {
                 }
             }
         },
-        uploadImage(event){
-            this.selectedImg[0] = URL.createObjectURL(event.target.files[0])
-            this.image = event.target.files[0];
-            console.log(this.selectedImg)
-            this.selectedImg[0] = "null"
+        uploadImage1(event){
+            this.selectedImg1 = URL.createObjectURL(event.target.files[0])
+            this.image1 = event.target.files[0];
+        }, 
+        uploadImage2(event){
+            this.selectedImg2 = URL.createObjectURL(event.target.files[0])
+            this.image2 = event.target.files[0];
+        }, 
+        uploadImage3(event){
+            this.selectedImg3 = URL.createObjectURL(event.target.files[0])
+            this.image3 = event.target.files[0];
+        }, 
+        uploadImage4(event){
+            this.selectedImg4 = URL.createObjectURL(event.target.files[0])
+            this.image4 = event.target.files[0];
         }, 
         handleImageAdded() 
         {
             var formData = new FormData();
-            for(let i=0;i<this.image.length;i++){
-
-            }
-            formData.append("image", this.image[0]);
-        
+            formData.append("image1", this.image1);
+            formData.append("image2", this.image2);
             axios({
                 url: "/api/imagesfundraisingonupload",
                 method: "POST",
@@ -200,8 +233,8 @@ export default {
                 }
             })
             .then(result => {
-                let url = result.data.data.url; // Get url from response
-                Editor.insertEmbed(cursorLocation, "image", url);
+                this.selectedImg1 = null;
+                this.selectedImg2 = null;
                 resetUploader();
             })
             .catch(err => {

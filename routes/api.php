@@ -31,6 +31,7 @@ Route::group(['middleware' => 'cors'], function () {
     Route::get('paymentmethods', 'PaymentMethodController@index');
     Route::post('campaigns/{raising_link}/donasisekarang', 'DonationController@donation');
     Route::get('fundraisingproduct', 'FundraisingProductController@index');
+    Route::get('fundraisingproduct/{id}', 'FundraisingProductController@getDetailProduct');
     Route::post('addfundraisingproduct', 'FundraisingProductController@addProduct');
     Route::post('imagesfundraisingonupload', 'FundraisingProductController@uploadImage');
     Route::get('event', 'EventController@index');
