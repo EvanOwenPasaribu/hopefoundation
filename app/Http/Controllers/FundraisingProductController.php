@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\FundraisingProduct;
 use App\FundraisingProductAttributes;
 use App\FundraisingProductImages;
+use App\Pesanan;
 use JWTAuth;
 class FundraisingProductController extends Controller
 {
@@ -101,6 +102,66 @@ class FundraisingProductController extends Controller
             'status' => 0,
             'data' => [
                 'url' =>  '/' . $tujuan_upload . '/' . $this->user->id . date('Ymdhis') . '.jpg'
+            ]
+        ], 200);
+    }
+
+    public function getCartProduct() {
+        //$this->user = JWTAuth::parseToken()->authenticate();
+        $pesanan = Pesanan::where('id_user', 1)->get();
+        $data_cart = [];
+        $index = 0;
+        foreach($pesanan as $item) {
+            //var_dump($item->id_product);
+            $data = FundraisingProduct::with(['fundraisingproductattributes','fundraisingproductimages'])->where('id_fundraisingproduct', $item->id_product)->get();
+            $data[$index]["total_product"] = $item->total_product;
+            $data_cart[] = $data;
+            $index++;
+        }
+       
+        return response()->json([
+            'code' => 200,
+            'message' => '',
+            'status' => 0,
+            'data' => $data_cart
+        ], 200);
+    }
+
+    public function addToCart(Request $request) {
+        $pesanan = new Pesanan();
+        $pesanan->id_user = "1";
+        $pesanan->id_product = $request->id_product;
+        $pesanan->status_pesanan = "Y";
+        $pesanan->bukti_pembayaran = "";
+        $pesanan->save();
+
+        return response()->json([
+            'code' => 200,
+            'message' => '',
+            'status' => 0,
+            'data' => [
+                'data' => "Berhasil"
+            ]
+        ], 200);
+
+    }
+
+    public function addSumProduct($id, Request $request) {
+        $totalProduct =  Pesanan::where('id_pemesanan', $id)->first()->total_product;
+        $added = $totalProduct;
+        if($request->add == "1") {
+            $added += 1;
+        }else if( $request->add == "0"){
+            $added -= 1;
+        }
+        Pesanan::where('id_pemesanan', $id)->update(['total_product'=>$added]);
+
+        return response()->json([
+            'code' => 200,
+            'message' => '',
+            'status' => 0,
+            'data' => [
+                'data' => "Berhasil"
             ]
         ], 200);
     }

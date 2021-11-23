@@ -19,6 +19,8 @@ import detailcampaigndashboard from './../components/donatur/DetailCampaignDashb
 import detailcampaignupdate from './../components/donatur/DetailCampaignDashboardTulisUpdate.vue';
 import fundraisingproduct from './../components/pengunjung/FundraisingProduct.vue';
 import detailfundraising from './../components/pengunjung/DetailFundraising.vue';
+import cartfundraising from './../components/pengunjung/CartFundraising.vue';
+import checkoutfundraising from './../components/pengunjung/CheckoutFundraising.vue';
 import homeusers from './../components/admin/Index.vue';
 import contactus from './../components/pengunjung/ContactUs.vue';
 import event from './../components/pengunjung/Event.vue';
@@ -231,6 +233,24 @@ const router = new Router({
             component: detailfundraising,
             meta: {
                 title: 'Hope Foundation - Detail Fundraising Product',
+                middleware: [authfordonatur, log],
+            }
+        },
+        {
+            name: 'cartfundraising',
+            path: '/fundraisingproduct/my/cart',
+            component: cartfundraising,
+            meta: {
+                title: 'Hope Foundation - Cart Fundraising Product',
+                middleware: [authfordonatur, log],
+            }
+        },
+        {
+            name: 'checkoutfundraising',
+            path: '/fundraisingproduct/my/checkout',
+            component: checkoutfundraising,
+            meta: {
+                title: 'Hope Foundation - Cart Fundraising Product',
                 middleware: [authfordonatur, log],
             }
         },

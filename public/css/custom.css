@@ -180,6 +180,15 @@
     }
 }
 
+/*#######################################
+            Fundraising Detail
+#########################################*/
+.go-to-cart {
+    position: absolute;
+    top : 500;
+    left: 0;
+}
+
 
 /*#######################################
                 Fundraising
@@ -230,3 +239,395 @@
     font-weight: bold;
     font-size: 16px;
 }
+
+/*###################################### 
+            Fundraising CART 
+########################################*/
+.cart-container-fundraising  {
+
+}
+
+.cart-container-fundraising *{
+    box-sizing:border-box;
+    border:0 solid #e2e8f0
+}
+.cart-container-fundraising svg{
+    display:block;
+    vertical-align:middle
+}
+
+.cart {
+    padding-right:50px;
+}
+
+.cart-container-fundraising .cart-inner {
+    padding: 30px;
+    box-shadow: 0 1px 6px 0 var(--color-shadow,rgba(49,53,59,0.12));
+}
+
+.cart-container-fundraising .cart .cart-title {
+    display: block;
+    position: relative;
+    font-weight: 800;
+    font-family: "Nunito Sans", -apple-system, sans-serif;
+    font-size: 1.42857rem;
+    line-height: 26px;
+    color: var(--color-text-high,rgba(49,53,59,0.96));
+    text-decoration: initial;
+    margin: 0px;
+}
+
+.cart-container-fundraising .checkbox-all {
+    font-size: 16px;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 10px;
+  }
+
+  .cart-container-fundraising .check-all {
+    padding-bottom : 9px;
+    border-bottom: 6px solid var(--N50,#F3F4F5);
+}
+
+/* Hide the browser's default checkbox */
+.cart-container-fundraising .checkbox-all input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.cart-container-fundraising .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    margin-top: 4px;
+    border:2px solid #6c727c;
+}
+
+/* On mouse-over, add a grey background color */
+.cart-container-fundraising .checkbox-all:hover input ~ .checkmark {
+    background-color: #6c727c;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cart-container-fundraising .checkbox-all input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.cart-container-fundraising .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.cart-container-fundraising .checkbox-all input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.cart-container-fundraising .checkbox-all .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 7px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cart-container-fundraising .image-wrap {
+    font-size: 16px;
+    display: flex;
+    padding : 5px;
+}
+
+.cart-container-fundraising .image-wrap .text-price {
+    font-weight: 800;
+}
+
+.cart-container-fundraising .img-cart {
+    border: 1px solid #afb8c7;
+    border-radius: 7px;
+    width: 69px;
+    height: 69px;
+    margin-right :10px;
+}
+
+.cart-container-fundraising .cart-action {
+    display: flex;
+}
+
+.cart-container-fundraising .cart-note {
+    width:50%;
+}
+
+.cart-container-fundraising .cart-note input {
+    width: 70%;
+}
+
+.cart-container-fundraising .cart-delete {
+    width: 25%;
+    align-self: center;
+    cursor: pointer;
+    text-align: right;
+}
+.cart-container-fundraising .cart-delete img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.8;
+}
+.cart-container-fundraising .cart-add {
+    width: 25%;
+    display: flex;
+    align-self: center;
+    justify-content: right;
+}
+.cart-container-fundraising .cart-add button {
+    cursor: pointer;
+    height: 50%;
+}
+
+.cart-container-fundraising .cart-add input {
+    padding-left:20px;
+    width: 60px;
+}
+
+.cart-container-fundraising .one-item-cart {
+    padding-bottom : 20px;
+    padding-top : 10px;
+    border-bottom: 3px solid var(--N50,#F3F4F5);
+}
+
+
+.cart-container-fundraising .detail-cart-inner{
+    padding :20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px 0 var(--color-shadow,rgba(49,53,59,0.12));
+}
+
+.cart-container-fundraising .detail-cart-inner h4 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-price {
+    display: flex;
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-price p:first-child {
+    width: 60%;
+}
+.cart-container-fundraising .detail-cart-inner .detail-price p:last-child {
+    width: 40%;
+    text-align: right;
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-discount {
+    display: flex;
+    border-bottom: 3px solid var(--N50,#F3F4F5);
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-discount p:first-child {
+    width: 60%;
+}
+.cart-container-fundraising .detail-cart-inner .detail-discount p:last-child {
+    width: 40%;
+    text-align: right;
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-total {
+    display: flex;
+    margin-top : 20px;
+    font-weight: 900;
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-total p:first-child {
+    width: 50%;
+}
+.cart-container-fundraising .detail-cart-inner .detail-total p:last-child {
+    width: 50%;
+    text-align: right;
+}
+
+.cart-container-fundraising .detail-cart-inner .detail-button {
+    display: block;
+    margin :5px 0;
+    padding :12px;
+}
+
+
+/*###################################### 
+            Fundraising CHECKOUT
+########################################*/
+.checkout-fund-cont .checkout {
+    padding-right:50px;
+}
+
+.checkout-fund-cont .checkout-inner {
+    padding: 30px;
+    box-shadow: 0 1px 6px 0 var(--color-shadow,rgba(49,53,59,0.12));
+}
+
+.checkout-fund-cont .checkout .checkout-title {
+    display: block;
+    position: relative;
+    font-weight: 800;
+    font-family: "Nunito Sans", -apple-system, sans-serif;
+    font-size: 1.42857rem;
+    line-height: 26px;
+    color: var(--color-text-high,rgba(49,53,59,0.96));
+    text-decoration: initial;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+.checkout-fund-cont .checkout .checkout-address-title {
+    padding-bottom : 6px;
+    border-bottom: 2px solid var(--N50,#F3F4F5);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.checkout-fund-cont .checkout .address-box {
+    padding-bottom : 20px;
+    border-bottom: 2px solid var(--N50,#F3F4F5);
+    margin-bottom: 20px;
+}
+
+.checkout-fund-cont .checkout .address-box tr td:first-child{
+    width: 200px;
+}
+
+.checkout-fund-cont .checkout .address-box tr td:nth-child(2){
+    width: 10px;
+}
+
+.checkout-fund-cont .checkout .address-box tr td:last-child{
+    min-width: 300px;
+}
+
+.checkout-fund-cont .checkout .checkout-orders-title {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.checkout-fund-cont .one-item-checkout {
+    align-self: center;
+}
+
+.checkout-fund-cont .one-item-checkout .image-wrap {
+    font-size: 16px;
+    display: flex;
+    padding : 5px;
+}
+
+.checkout-fund-cont .one-item-checkout .image-wrap .text-price {
+    font-weight: 800;
+}
+
+.checkout-fund-cont.one-item-checkout .image-wrap .item-number {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.checkout-fund-cont .one-item-checkout .img-cart {
+    border: 1px solid #afb8c7;
+    border-radius: 7px;
+    width: 69px;
+    height: 69px;
+    margin-right :10px;
+}
+
+.checkout-fund-cont .text-image p{
+    margin : 0 !important;
+}
+
+
+.checkout-fund-cont .detail-checkout-inner{
+    padding :20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px 0 var(--color-shadow,rgba(49,53,59,0.12));
+}
+
+.checkout-fund-cont .detail-checkout-inner h4 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-price {
+    display: flex;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-price p:first-child {
+    width: 70%;
+}
+.checkout-fund-cont .detail-checkout-inner .detail-price p:last-child {
+    width: 30%;
+    text-align: right;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-discount {
+    display: flex;
+    border-bottom: 3px solid var(--N50,#F3F4F5);
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-discount p:first-child {
+    width: 70%;
+}
+.checkout-fund-cont .detail-checkout-inner .detail-discount p:last-child {
+    width: 30%;
+    text-align: right;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-total {
+    display: flex;
+    margin-top : 20px;
+    font-weight: 900;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-total p:first-child {
+    width: 70%;
+}
+.checkout-fund-cont .detail-checkout-inner .detail-total p:last-child {
+    width: 30%;
+    text-align: right;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-pengiriman {
+    display: flex;
+    font-weight: 900;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-pengiriman p:first-child {
+    width: 70%;
+}
+.checkout-fund-cont .detail-checkout-inner .detail-pengiriman p:last-child {
+    width: 30%;
+    text-align: right;
+}
+
+.checkout-fund-cont .detail-checkout-inner .detail-button {
+    display: block;
+    margin :5px 0;
+    padding :12px;
+}
+

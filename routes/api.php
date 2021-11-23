@@ -31,8 +31,11 @@ Route::group(['middleware' => 'cors'], function () {
     Route::get('paymentmethods', 'PaymentMethodController@index');
     Route::post('campaigns/{raising_link}/donasisekarang', 'DonationController@donation');
     Route::get('fundraisingproduct', 'FundraisingProductController@index');
+    Route::get('fundraisingproduct/my/cart', 'FundraisingProductController@getCartProduct');
     Route::get('fundraisingproduct/{id}', 'FundraisingProductController@getDetailProduct');
+    Route::post('fundraisingproduct/addSumProduct/{id}', 'FundraisingProductController@addSumProduct');
     Route::post('addfundraisingproduct', 'FundraisingProductController@addProduct');
+    Route::post('addtocartfundraisingproduct', 'FundraisingProductController@addToCart');
     Route::post('imagesfundraisingonupload', 'FundraisingProductController@uploadImage');
     Route::get('event', 'EventController@index');
     Route::get('event/{id_event}', 'EventController@getdetaileventpengunjung');

@@ -4,9 +4,14 @@
             <div class="container">
                 <div class="row">
                 <div class="col-md-12">
-                    <div class="section-heading">
-                    <div class="line-dec"></div>
-                    <h1>Detail Product</h1>
+                    <div class="row">
+                        <div class="section-heading col-md-3">
+                            <div class="line-dec"></div>
+                            <h1>Detail Product</h1>
+                        </div>
+                        <div class="go-to-cart col-md-3">
+                            
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -14,7 +19,7 @@
                     <div id="slider" class="flexslider">
                         <ul class="slides">
                         
-                        <li v-for=(item, index) in fundraisingproducts[0].fundraisingproductimages>
+                        <li>
                             <img :src="'/images/testing/hope.jpg'" />
                         </li>
                         <li>
@@ -42,6 +47,7 @@
                     </div>
                     </div>
                 </div>
+                
                 <div class="col-md-6">
                     <div class="right-content">
                     <h4>Kaos Hope</h4>
@@ -54,15 +60,16 @@
                             onfocus="if(this.value == '1') { this.value = ''; }" 
                             onBlur="if(this.value == '') { this.value = '1';}"
                             value="1">
+                        <a v-on:click="addToCart()" class="btn btn-primary">Tambah Keranjang</a>
                         <input type="submit" class="button" value="Pesan Sekarang">
                     </form>
                     </div>
                 </div>
+
                 </div>
             </div>
             </div>
             <!-- Single Page Ends Here -->
-
 
             <!-- Similar Starts Here -->
             <div class="featured-items">
@@ -113,11 +120,35 @@
         },
         data(){
             return{
-                path: this.$route.params.id_fundraisingproduct,
+                id_product: this.$route.params.id_fundraisingproduct,
                 fundraisingproducts: [],
                 fundraisingproductimages: [],
                 datafundraisingproducts: [],
                 testing : [],
+            }
+        },
+        methods : {
+            addToCart(){
+                let bodyParameters = new FormData();
+                var config = {
+                    headers: {
+                        'Authorization': "Bearer " + localStorage.usertoken,
+                        'Content-Type': "multipart/form-data"
+                    }
+                };
+                bodyParameters.append('id_product',this.id_product);
+
+                axios.post('/api/addtocartfundraisingproduct',bodyParameters,config).then((res) => 
+                {
+                    this.$swal({
+                        title: 'Berhasil Tambah Ke Keranjang!',
+                        text: res.data.message,
+                        type: 'success'
+                    });
+                })
+                .catch((res) => {
+                    this.handlerException(res)
+                })
             }
         },
         mounted() {
