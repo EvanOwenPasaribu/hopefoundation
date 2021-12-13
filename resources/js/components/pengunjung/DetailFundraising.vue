@@ -18,7 +18,6 @@
                     <div class="product-slider">
                     <div id="slider" class="flexslider">
                         <ul class="slides">
-                        
                         <li>
                             <img :src="'/images/testing/hope.jpg'" />
                         </li>
@@ -160,12 +159,7 @@
             .catch(function (res) {
                 console.log(res);
             });
-            axios.get('/api/fundraisingproduct').then(function (res) {
-                app.datafundraisingproducts = res.data.data
-            })
-            .catch(function (res) {
-                console.log(res);
-            });
+
         }
         
     }

@@ -97,11 +97,48 @@ class CampaignsController extends Controller
             'status' => 0,
             'data' => $save
         ], 200);
-       
+    }
+
+    public function getDataById($id) {
+        $campaigns = Campaigns::with(['user','category'])->where('id_campaigns', $id)->get();
+        return response()->json([
+            'code' => 200,
+            'message' => '',
+            'status' => 0,
+            'data' => $campaigns
+        ], 200);
     }
 
     public function update(Request $request, $id)
     {
+        $this->user = JWTAuth::parseToken()->authenticate();
+        $campaign = Campaigns::find($id);
+
+        $campaign->campaigns_title = $request->get('judul');
+        $campaign->campaigns_description = $request->get('isicampaign');
+        $campaign->short_invitation = $request->get('ajakansingkat');
+        $campaign->target_funds = $request->get('target');
+        $batastanggal = strtotime($request->get('batastanggal'));
+        $newformat = date('Y-m-d h:i:s',$batastanggal);
+        $campaign->raising_deadline = $newformat;
+        $campaign->raising_link = $request->get('link');
+        if($request->get('statusfoto')) {
+            $tujuan_upload = 'images/campaigns/' . $this->user->id . '/' . $id;
+            $namafile = $this->user->id . date('Ymdhis') . '.jpg';
+            $request->file('foto')->move($tujuan_upload,$namafile);
+            $campaign->campaigns_foto = '/' . $tujuan_upload . '/' . $namafile;
+        }
+        $campaign->fundraiser_phone_number = $request->get('nomorhp');
+        $campaign->purpose_of_raising = $request->get('keperluan');
+
+        $campaign->save();
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Data Berhasil Diupdate',
+            'status' => 0,
+            'data' => "Berha"
+        ], 200);
     }
 
     public function destroy($id)

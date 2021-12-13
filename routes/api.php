@@ -27,6 +27,7 @@ Route::group(['middleware' => 'cors'], function () {
     Route::get('programkerjacategory', 'ProgramKerjaCategoryController@index');
     Route::get('campaigns/{raising_link}', 'CampaignsController@show');
     Route::post('campaigns/registration', 'CampaignsController@store');
+    Route::get('campaigns/data/{id}', 'CampaignsController@getDataById');
     Route::get('campaigns/all/frontimportant', 'CampaignsController@frontImportantCampaign');
     Route::get('paymentmethods', 'PaymentMethodController@index');
     Route::post('campaigns/{raising_link}/donasisekarang', 'DonationController@donation');
@@ -92,6 +93,8 @@ Route::group(['middleware' => 'cors'], function () {
         
         Route::get('campaigns', 'CampaignsController@adminindex');
         Route::post('campaigns/imagesdescriptionupload', 'CampaignsController@campaignuploadimage');
+        Route::get('campaigns/{raising_link}', 'CampaignsController@show');
+        Route::post('campaigns/{id}/update', 'CampaignsController@update');
         Route::delete('campaigns/{id}/delete', 'CampaignsController@deletecampaigns');
 
         Route::get('donaturs', 'DonaturController@adminindex');

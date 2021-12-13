@@ -46,6 +46,8 @@ import editprogramkerjacategorys from './../components/admin/programkerjacategor
 import adminfundraisingproducts from './../components/admin/fundraisingproduct/DataFundraisingProduct.vue';
 import adminaddfundraisingproducts from './../components/admin/fundraisingproduct/AddDataFundraisingProduct.vue';
 import admingalangdana from './../components/admin/galangdana/DataGalangDana.vue';
+import admindetailgalangdana from './../components/admin/galangdana/DetailGalangDana.vue';
+import admineditgalangdana from './../components/admin/galangdana/EditGalangDana.vue';
 import addgalangdanas from './../components/admin/galangdana/TambahDataGalangDana.vue';
 import admindonatur from './../components/admin/donatur/DataDonatur.vue';
 import admininformasikesehatans from './../components/admin/informasikesehatan/DataInformasiKesehatan.vue';
@@ -467,6 +469,24 @@ const router = new Router({
             component: admingalangdana,
             meta: {
                 title: 'Hope Foundation - Data Galang Dana',
+                middleware: [auth, log,authforadmin],
+            }
+        },
+        {
+            name: 'admindetailgalangdana',
+            path: '/admin/dashboard/campaigns/:raising_link',
+            component: admindetailgalangdana,
+            meta: {
+                title: 'Hope Foundation - Data Galang Dana Detail',
+                middleware: [auth, log,authforadmin],
+            }
+        },
+        {
+            name: 'admineditgalangdana',
+            path: '/admin/dashboard/campaigns/update/:id',
+            component: admineditgalangdana,
+            meta: {
+                title: 'Hope Foundation - Data Galang Dana Update',
                 middleware: [auth, log,authforadmin],
             }
         },

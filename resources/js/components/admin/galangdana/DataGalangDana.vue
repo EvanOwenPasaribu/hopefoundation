@@ -17,17 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
@@ -150,8 +140,8 @@ export default {
                         galangdana.short_invitation,
                         this.formatPrice(galangdana.target_funds),
                         galangdana.donations.length,
-                        '<a href="/admin/dashboard/galangdanas/' + galangdana.id_campaigns + '"><i class="fas fa-fw fa-eye"></i><span>Lihat</span></a>',
-                        '<a href="/admin/dashboard/galangdanas/edit/' + galangdana.id_campaigns+ '"><i class="fas fa-fw fa-edit"></i><span>Ubah</span></a>',
+                        '<a href="/admin/dashboard/campaigns/' + galangdana.raising_link + '"><i class="fas fa-fw fa-eye"></i><span>Lihat</span></a>',
+                        '<a href="/admin/dashboard/campaigns/update/' + galangdana.id_campaigns + '"><i class="fas fa-fw fa-edit"></i><span>Ubah</span></a>',
                         '<a href="#" onclick="openModalDelete(' + galangdana.id_campaigns + ')"><i class="fas fa-fw fa-trash"></i><span>Hapus</span></a>',
                     ]).draw(false) 
                     i++

@@ -1,26 +1,69 @@
 <template>
     <div class="container addpaddingtop addpaddingbottom">
+
         <form v-on:submit.prevent="changeType">
-            <div class="row">
-                <div class="col-md-4 paddingtop10px">
-                    <select class="form-control" name="kategori" v-model="kategori">
-                        <option value="0" :selected="kategori == 0">Semua Kategori</option>
-                        <option v-for="(item, idx) in category" :key="idx" :value="item.id_category" :selected="kategori == item.id_category">
-                            {{ item.category_description }}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-md-4 paddingtop10px">
-                    <input type="text" class="form-control" v-model="keywords" placeholder="Masukkan Kata Kunci Penggalangan"> 
-                </div>
-                <div class="col-md-2 paddingtop10px">
-                    <button type="submit" class="btn btn-primary py-3 px-4">CARI</button>
-                </div>
+             <div class="search-donation-wrapper">
+                <input type="text" class="search-donation" v-model="keywords" placeholder="Masukkan Kata Kunci Penggalangan">
+                <button type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
+
+        <div class="donation-menu">
+            <div class="wrapper-box">
+                <div v-on:click="changeKategori('0')" class="donasi-menu-wrapper">
+                    <div class="img-menu">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="title-menu">
+                        <p>Semua</p>
+                    </div>
+                </div>
+                <div v-on:click="changeKategori('1')" class="donasi-menu-wrapper">
+                    <div class="img-menu center">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="title-menu">
+                        <p>Bencana Alam</p>
+                    </div>
+                </div>
+                <div v-on:click="changeKategori('2')" class="donasi-menu-wrapper">
+                    <div class="img-menu center">
+                        <i class="fas fa-blind"></i>
+                    </div>
+                    <div class="title-menu">
+                        <p>Difabel</p>
+                    </div>
+                </div>
+                <div v-on:click="changeKategori('3')" class="donasi-menu-wrapper">
+                    <div class="img-menu center">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="title-menu">
+                        <p>Balita dan Anak Sakit</p>
+                    </div>
+                </div>
+                <div v-on:click="changeKategori('4')" class="donasi-menu-wrapper">
+                    <div class="img-menu center">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <div class="title-menu">
+                        <p>Kegiatan Sosial</p>
+                    </div>
+                </div>
+                <div v-on:click="changeKategori('5')" class="donasi-menu-wrapper">
+                    <div class="img-menu center">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="title-menu">
+                        <p>Pengobatan Pasien</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <hr>
         <div class="row">
-            <div class="col-md-4 margintop15px" v-for="(campaign, cf) in campaigns" :key="cf">
+            <div class="col-md-3 margintop15px" v-for="(campaign, cf) in campaigns" :key="cf">
                 <DetailCardCampaign v-bind:campaign="campaign"/>
             </div>
             <div class="col-md-12 text-center">  
@@ -63,6 +106,12 @@
             });
         },
         methods: {
+            changeKategori(kategori) {
+                this.page = 1;
+                this.campaigns = [];
+                this.kategori = kategori;
+                this.infiniteId += 1;
+            },
             changeType() {
                 this.page = 1;
                 this.campaigns = [];

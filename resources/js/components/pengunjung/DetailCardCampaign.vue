@@ -1,11 +1,11 @@
 <template>
     <router-link :to="{ name: 'detailcampaign', params: { raising_link: campaign.raising_link }}">
-        <div class="card">
-            <div class="crop centered">
-                <img :src="campaign.campaigns_foto">
+        <div class="card" style="box-shadow: rgba(123, 186, 67, 0.15) 1.95px 1.95px 2.6px; border: 1px solid #7BBA43">
+            <div class="crop centered card-header p-0">
+                <img style="width:100%;object-fit:cover;height:100%" class='img-fluid' :src="campaign.campaigns_foto">
             </div>
-            <div class="card-body"> 
-                <h5 class="card-title"><b>{{campaign.campaigns_title}}</b></h5>
+            <div class="card-body p-3"> 
+                <h5 class="card-title" style="color: #7BBA43"><b>{{campaign.campaigns_title}}</b></h5>
                 <a href=""><p class="card-text text-black-100">{{campaign.user.name}} <i v-if="campaign.user.isverified == 'Y'" class="fa fa-check-circle blue"></i></p></a>
                 <span class="project-bar-progress progressbarmargin" :style="{width:campaign.funds_collected/campaign.target_funds * 100 + '%'}"></span>
                 <div class="row">
@@ -13,7 +13,7 @@
                         <h6 class="text-black-100">Terkumpul<br><b>Rp. {{ formatPrice(campaign.funds_collected) }}</b></h6>
                     </div>
                     <div class="col-6 text-right">
-                        <h6 class="text-black-100">Sisa Hari<br><b>{{workingDaysBetweenDates(formatDate(datenow, "yyyy-MM-dd"), campaign.raising_deadline, false)}}</b></h6>
+                        <h6 class="text-black-100">Sisa Hari<br><b>{{workingDaysBetweenDates(formatDate(datenow, "yyyy-MM-dd"), campaign.raising_deadline,false)}}</b></h6>
                     </div>
                 </div>
             </div>
