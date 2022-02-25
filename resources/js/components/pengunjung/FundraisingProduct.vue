@@ -9,6 +9,24 @@
             <button class="btn btn-primary" type="button" id="button-addon2">Cari</button>
         </div>
 
+        <div class="row">
+            <div style="padding:10px" class="col-md-4">
+                <div style="border:2px solid #7BBA43;height:400px">
+                    <h4>Video 1</h4>
+                </div>
+            </div>
+            <div style="padding:10px" class="col-md-4">
+                <div style="border:2px solid #7BBA43;height:400px">
+                    <h4>Video 2</h4>
+                </div>
+            </div>
+            <div style="padding:10px" class="col-md-4">
+                <div style="border:2px solid #7BBA43;height:400px">
+                    <h4>Video 3</h4>
+                </div>
+            </div>
+        </div>
+
         <div class="row fundraising-product">
             <div class="col-md-2 col-sm-3 col-4 d-inline-block" v-for="(fundraisingproduct, fp) in fundraisingproducts" :key="fp"">
                 <FundraisingCardProduct v-bind:fundraisingproduct="fundraisingproduct"/>
