@@ -99,7 +99,7 @@
                     <input type="text" class="form-control" name="facebook" v-model="facebook" placeholder="Contoh: yayasan_hope" id="facebook">
                     <span v-if="errors.facebook" :class="['label label-danger']">{{ errors.facebook[0] }}</span>
                 </div>
-            </div>
+            </div>    
             <div class="form-group row">
                 <label for="instagram" class="col-sm-2 col-form-label text-black-100">Instagram Pada Footer</label>
                 <div class="col-sm-10">
@@ -107,6 +107,98 @@
                     <span v-if="errors.instagram" :class="['label label-danger']">{{ errors.instagram[0] }}</span>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="programkerja" class="col-sm-2 col-form-label text-black-100">Program Kerja</label>
+                <div class="col-sm-10">
+                    <div id="wrapprogramkerja">
+                        <div v-for="(item,index) in listProgramKerja"> 
+                            <div class="btn btn-primary mb-2" style="color:black;width:250px">
+                                {{item}}
+                            </div>
+                            <i style="color:black;cursor:pointer" @click="hapusProgramKerja(index)" class="fas fa-trash-alt"></i>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="programkerja" placeholder="Contoh: Donor Darah" id="programkerja">
+                        <div class="input-group-append">
+                            <a @click="tambahProgramKerja()" style="width:75px" class="btn btn-primary input-group-button">Tambah</a>
+                        </div>
+                    </div>
+                    <span v-if="errors.program_kerja" :class="['label label-danger']">{{ errors.program_kerja[0] }}</span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fotoslider1" class="col-sm-2 col-form-label text-black-100">Foto Slider Home 1</label>
+                <div class="col-sm-10">
+                    <div class="row ml-0">
+                        <template v-for="(item, index) in dataSlider1">
+                            <div @mouseover="showIcDelete($event)" @mouseleave="hideIcDelete($event)"  class="box-image" v-bind:style="{'background-image':'url(' + item + ')'}">
+                                <div style="display:none;height:100%;width:100%;background:rgba(0,0,0,0.3);justify-content:center;align-items:center">
+                                    <i style="color:white" @click="deleteDataSlider1(index)" class="fas fa-trash-alt"></i>
+                                </div>
+                            </div>
+                        </template>
+                        <div  class="box-image">
+                            <i class="hope-icon-upload">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"></path></svg>
+                            </i>
+                            <input type="file" class="input_file" name="image-slider-add" v-on:change="onImageChangeSlider1" id="image-slider-add" ref="fileInputimageslider1"/>
+                        </div>
+                    </div>
+                    <span v-if="errors.dataSlider1" :class="['label label-danger']">{{ errors.dataSlider1[0] }}</span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fotoslider2" class="col-sm-2 col-form-label text-black-100">Foto Slider Home 2</label>
+                <div class="col-sm-10">
+                    <div class="row ml-0">
+                        <template v-for="(item, index) in dataSlider2">
+                            <div @mouseover="showIcDelete($event)" @mouseleave="hideIcDelete($event)"  class="box-image" v-bind:style="{'background-image':'url(' + item + ')'}">
+                                <div style="display:none;height:100%;width:100%;background:rgba(0,0,0,0.3);justify-content:center;align-items:center">
+                                    <i style="color:white" @click="deleteDataSlider2(index)" class="fas fa-trash-alt"></i>
+                                </div>
+                            </div>
+                        </template>
+                        <div  class="box-image">
+                            <i class="hope-icon-upload">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"></path></svg>
+                            </i>
+                            <input type="file" class="input_file" name="image-slider-add" v-on:change="onImageChangeSlider2" id="image-slider-add" ref="fileInputimageslider2"/>
+                        </div>
+                    </div>
+                    <span v-if="errors.dataSlider2" :class="['label label-danger']">{{ errors.dataSlider2[0] }}</span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fotoinfokesehatan" class="col-sm-2 col-form-label text-black-100">Foto Info Kesehatan</label>
+                <div class="col-sm-10">
+                    <img :src="front_picture_info_kesehatan" style="width:200px"/>
+                    <input type="file" class="foto form-control" name="front_picture_info_kesehatan" v-on:change="onImageChangeInfoKesehatan" id="fotoinfokesehatan" ref="fileInputinfokesehatan"/>
+                    <span v-if="errors.front_picture_info_kesehatan" :class="['label label-danger']">{{ errors.front_picture_info_kesehatan[0] }}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="fotoedukasikesehatan" class="col-sm-2 col-form-label text-black-100">Foto Edukasi Kesehatan</label>
+                <div class="col-sm-10">
+                    <img :src="front_picture_edukasi_kesehatan" style="width:200px"/>
+                    <input type="file" class="foto form-control" name="front_picture_edukasi_kesehatan" v-on:change="onImageChangeEdukasiKesehatan" id="fotoedukasikesehatan" ref="fileInputedukasikesehatan"/>
+                    <span v-if="errors.front_picture_edukasi_kesehatan" :class="['label label-danger']">{{ errors.front_picture_edukasi_kesehatan[0] }}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="fotokerjasama" class="col-sm-2 col-form-label text-black-100">Foto Kerja Sama</label>
+                <div class="col-sm-10">
+                    <img :src="front_picture_kerja_sama" style="width:200px"/>
+                    <input type="file" class="foto form-control" name="front_picture_kerja_sama" v-on:change="onImageChangeKerjaSama" id="fotokerjasama" ref="fileInputkerjasama"/>
+                    <span v-if="errors.front_picture_kerja_sama" :class="['label label-danger']">{{ errors.front_picture_kerja_sama[0] }}</span>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="facebookpage" class="col-sm-2 col-form-label text-black-100">Facebook Page Pada Footer</label>
                 <div class="col-sm-10">
@@ -114,6 +206,28 @@
                     <span v-if="errors.facebook_page" :class="['label label-danger']">{{ errors.facebook_page[0] }}</span>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="instagrampage" class="col-sm-2 col-form-label text-black-100">Instagram Page Pada Footer</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="instagram_page" v-model="instagram_page" placeholder="Contoh: yayasan_hope" id="instagram_page">
+                    <span v-if="errors.instagram_page" :class="['label label-danger']">{{ errors.instagram_page[0] }}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="youtubepage" class="col-sm-2 col-form-label text-black-100">Youtube Page Pada Footer</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="youtube_page" v-model="youtube_page" placeholder="Contoh: yayasan_hope" id="youtube_page">
+                    <span v-if="errors.youtube_page" :class="['label label-danger']">{{ errors.youtube_page[0] }}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="tiktokpage" class="col-sm-2 col-form-label text-black-100">Tiktok Page Pada Footer</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="tiktok_page" v-model="tiktok_page" placeholder="Contoh: yayasan_hope" id="tiktok_page">
+                    <span v-if="errors.tiktok_page" :class="['label label-danger']">{{ errors.tiktok_page[0] }}</span>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="pilihan_kota" class="col-sm-2 col-form-label text-black-100">Pilihan Kota</label>
                 <div class="col-sm-10">
@@ -173,17 +287,31 @@ export default {
             youtube: '',
             facebook: '',
             instagram: '',
+            selectedImg1 : '',
+            front_picture_info_kesehatan: '',
+            front_picture_edukasi_kesehatan: '',
+            front_picture_kerja_sama: '',
+            fotoinfokesehatan : '',
+            fotoedukasikesehatan : '',
+            fotokerjasama : '',
             facebook_page: '',
+            instagram_page: '',
+            youtube_page: '',
+            tiktok_page: '',
             foto: '',
             foto2: '',
             foto3: '',
             excel: '',
             excelkodependaftaran: '',
             pilihan_kota: '',
-            errors: []
+            errors: [],
+            listProgramKerja : [],
+            dataSlider1 : [],
+            listFotoSlider1 : [],
+            dataSlider2 : [],
+            listFotoSlider2 : [],
         }
     },
-
     mounted() {
         this.showTemplates()
         this.getKota()
@@ -222,8 +350,16 @@ export default {
                 app.youtube = res.data.data.youtube,
                 app.facebook = res.data.data.facebook
                 app.instagram = res.data.data.instagram
+                app.listProgramKerja = JSON.parse(res.data.data.program_kerja)
+                app.dataSlider1 = JSON.parse(res.data.data.picture_slider1)
+                app.dataSlider2 = JSON.parse(res.data.data.picture_slider2)
+                app.front_picture_info_kesehatan = res.data.data.picture_info_kesehatan
+                app.front_picture_edukasi_kesehatan = res.data.data.picture_edukasi_kesehatan
+                app.front_picture_kerja_sama = res.data.data.picture_kerja_sama
                 app.facebook_page = res.data.data.facebook_page
-
+                app.instagram_page = res.data.data.instagram_page
+                app.youtube_page = res.data.data.youtube_page
+                app.tiktok_page = res.data.data.tiktok_page
             })
             .catch((res) => {
                 console.log(res);
@@ -266,7 +402,106 @@ export default {
             reader.onload = e =>{
                 this.excelkodependaftaran = e.target.result;
             };
-            
+        },
+        onImageChangeInfoKesehatan(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            let vm = this;
+            vm.fotoinfokesehatan = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(vm.fotoinfokesehatan);
+            reader.onload = e =>{
+                this.front_picture_info_kesehatan = e.target.result;
+            };
+        },
+        onImageChangeEdukasiKesehatan(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            let vm = this;
+            vm.fotoedukasikesehatan = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(vm.fotoedukasikesehatan);
+            reader.onload = e =>{
+                this.front_picture_edukasi_kesehatan = e.target.result;
+            };
+        },
+        onImageChangeKerjaSama(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            let vm = this;
+            vm.fotokerjasama = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(vm.fotokerjasama);
+            reader.onload = e =>{
+                this.front_picture_kerja_sama = e.target.result;
+            };
+        },
+        onImageChangeSlider1(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            let vm = this;
+            let img = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(img);
+            reader.onload = e =>{
+                let temp = e.target.result;
+                this.dataSlider1.push(temp);
+                this.listFotoSlider1.push(img);
+            };
+        },
+        onImageChangeSlider2(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            let vm = this;
+            let img = e.target.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(img);
+            reader.onload = e =>{
+                let temp = e.target.result;
+                this.dataSlider2.push(temp);
+                this.listFotoSlider2.push(img);
+            };
+        },
+        showIcDelete(e){
+             e.target.querySelector('div').style.display = "flex"
+        },
+        hideIcDelete(e){
+            e.target.querySelector('div').style.display = "none"
+        },
+        deleteDataSlider1(index){
+            let lengtholddata = this.dataSlider1.length - this.listFotoSlider1.length;
+            this.dataSlider1.splice(index,1);
+            if(index => lengtholddata){
+                this.listFotoSlider1.splice(index-lengtholddata, 1);
+            }
+        },
+        deleteDataSlider2(index){
+            let lengtholddata = this.dataSlider2.length - this.listFotoSlider2.length;
+            this.dataSlider2.splice(index,1);
+            if(index => lengtholddata){
+                this.listFotoSlider2.splice(index-lengtholddata, 1);
+            }
+        },
+        tambahProgramKerja(){
+            var s = $("#programkerja").val();
+            if(s.trim() == ""){
+                this.$swal({
+                    title: 'Error',
+                    text: "Tidak Boleh Kosong",
+                    type: 'error'
+                });
+            }else{
+                this.listProgramKerja.push(s);
+                $("#programkerja").val("");
+            }
+        },
+        hapusProgramKerja(index){
+            this.listProgramKerja.splice(index, 1);
         },
         handleImageAdded: function(file, Editor, cursorLocation, resetUploader) 
         {
@@ -317,7 +552,29 @@ export default {
             bodyParameters.append('youtube', this.youtube);
             bodyParameters.append('facebook', this.facebook);
             bodyParameters.append('instagram', this.instagram);
+            bodyParameters.append('program_kerja', JSON.stringify(this.listProgramKerja));
+            bodyParameters.append('countImageSlider1', this.listFotoSlider1.length);
+            console.log(this.listFotoSlider1.length);
+            for(let i=0;i<this.listFotoSlider1.length;i++){
+                var indexUpdateArray = this.listFotoSlider1.length - (i+1);
+                bodyParameters.append('slider_picture1'+(i+1), this.listFotoSlider1[i]);
+            }
+            bodyParameters.append('oldDataSlider1', JSON.stringify(this.dataSlider1.slice(0,this.dataSlider1.length-this.listFotoSlider1.length)));
+            
+            bodyParameters.append('countImageSlider2', this.listFotoSlider2.length);
+            for(let i=0;i<this.listFotoSlider2.length;i++){
+                var indexUpdateArray = this.listFotoSlider2.length - (i+1);
+                bodyParameters.append('slider_picture2'+(i+1), this.listFotoSlider2[i]);
+            }
+            bodyParameters.append('oldDataSlider2', JSON.stringify(this.dataSlider2.slice(0,this.dataSlider2.length-this.listFotoSlider2.length)));
+            
+            bodyParameters.append('front_picture_info_kesehatan', this.fotoinfokesehatan);
+            bodyParameters.append('front_picture_edukasi_kesehatan', this.fotoedukasikesehatan);
+            bodyParameters.append('front_picture_kerja_sama', this.fotokerjasama);
             bodyParameters.append('facebook_page', this.facebook_page);
+            bodyParameters.append('instagram_page', this.instagram_page);
+            bodyParameters.append('youtube_page', this.youtube_page);
+            bodyParameters.append('tiktok_page', this.tiktok_page);
             bodyParameters.append('pilihan_kota',this.pilihan_kota);
             bodyParameters.append('excel', this.foto2);
             bodyParameters.append('excelkodependaftaran', this.foto3);
@@ -350,7 +607,18 @@ export default {
                 this.youtube = res.data.data.youtube,
                 this.facebook = res.data.data.facebook
                 this.instagram = res.data.data.instagram
+                this.listProgramKerja = JSON.parse(res.data.data.program_kerja)
+                this.listFotoSlider1 = []
+                this.dataSlider1 = JSON.parse(res.data.data.picture_slider1)
+                this.listFotoSlider2 = []
+                this.dataSlider2 = JSON.parse(res.data.data.picture_slider2)
+                this.front_info_kesehatan = res.data.picture_info_kesehatan
+                this.front_edukasi_kesehatan = res.data.picture_edukasi_kesehatan
+                this.front_kerja_sama = res.data.picture_kerja_sama
                 this.facebook_page = res.data.data.facebook_page
+                this.instagram_page = res.data.data.instagram_page
+                this.youtube_page = res.data.data.youtube_page
+                this.tiktok_page = res.data.data.tiktok_page
                 this.foto = "";
                 this.foto2 = "";
                 this.foto3 = "";
@@ -360,6 +628,11 @@ export default {
                 this.pilihan_kota = "";
                 this.$refs.fileInput2.value = '';
                 this.$refs.fileInput3.value = '';
+                this.$refs.fileInputimageslider1.value = '';
+                this.$refs.fileInputimageslider2.value = '';
+                this.$refs.fileInputinfokesehatan.value = '';
+                this.$refs.fileInputedukasikesehatan.value = '';
+                this.$refs.fileInputkerjasama.value = '';
             })
             .catch((res) => {
                 this.handlerException(res)

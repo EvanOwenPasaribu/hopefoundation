@@ -53,7 +53,8 @@
         <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
         <script src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
         <script src="{{ asset('js/scrollax.min.js') }}"></script>
-        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        {{--  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>  --}}
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script src="{{ asset('js/aos.js') }}"></script>
         <script src="{{ asset('js/slider.js') }}"></script>
         <script src="{{ asset('js/bootstrap-clockpicker.min.js') }}"></script> 

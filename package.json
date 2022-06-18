@@ -43,6 +43,7 @@
         "vue-infinite-loading": "^2.4.4",
         "vue-jquery": "^1.0.6",
         "vue-moment": "^4.1.0",
+        "vue-owl-carousel": "^2.0.3",
         "vue-resource": "^1.5.3",
         "vue-router": "^3.0.6",
         "vue-sweetalert2": "^2.0.5",

@@ -2,7 +2,7 @@
     <div>
         <nav v-if="user.users_status =='1' || !auth" :class="[isActive == '/' ?'navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target':'navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light bg-dark site-navbar-target']" id="ftco-navbar">
             <div class="container">
-                <router-link class="navbar-brand" to="/"><img :src="'/images/base/logohopebiasateksputih.png'" style="width:110px;margin-top:-10px"/></router-link>
+                <router-link class="navbar-brand" to="/"><img :src="'/images/base/logohopebiasateksputih.png'" style="width:110px;margin-top:-10px;"/></router-link>
                 <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>
                 </button>
